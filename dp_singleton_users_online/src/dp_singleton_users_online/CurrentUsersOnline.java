@@ -4,7 +4,7 @@ import java.util.LinkedList;
 
 public class CurrentUsersOnline {
 	private static CurrentUsersOnline currentUsersOnline;
-	private LinkedList<String> currentUserList = new LinkedList<>();
+	private LinkedList<Integer> currentUserList = new LinkedList<>();
 	
 	private CurrentUsersOnline(){}
 	
@@ -16,20 +16,18 @@ public class CurrentUsersOnline {
 	}
 	
 	public void addUserId(int id){
-		String stringId = Integer.toString(id);
-		if(!currentUserList.contains(stringId)){
-			currentUserList.add(stringId);
+		if(!currentUserList.contains((Integer) id)){
+			currentUserList.add((Integer) id);
 		}
 	}
 	
-	public LinkedList<String> getCurrentOnlineUserIds(){
+	public LinkedList<Integer> getCurrentOnlineUserIds(){
 		return currentUserList;
 	}
 	
 	public void removeUserId(int id){
-		String stringId = Integer.toString(id);
-		if(currentUserList.contains(stringId)){
-			currentUserList.remove(stringId);
+		if(currentUserList.contains((Integer) id)){
+			currentUserList.remove((Integer) id);
 		}else{
 			throw new RuntimeException("User id not found in target collection");
 		}
